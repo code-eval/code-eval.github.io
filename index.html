@@ -108,7 +108,7 @@ function toggle_visibility(element_id) {
                             <div class="publication-links">
                                 <!-- PDF Link. -->
                                 <span class="link-block">
-                                    <a href="https://arxiv.org/pdf/2212.10481.png"
+                                    <a href="https://arxiv.org/abs/2212.10481"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fas fa-file-pdf"></i>
@@ -123,7 +123,7 @@ function toggle_visibility(element_id) {
                                         <span class="icon">
                                             <i class="fab fa-github"></i>
                                         </span>
-                                        <span>Code&Data</span>
+                                        <span>Code & Data</span>
                                     </a>
                                 </span>
                             </div>
@@ -138,12 +138,16 @@ function toggle_visibility(element_id) {
     <section class="hero teaser">
         <div class="container is-max-desktop">
             <div class="hero-body">
+                <h2 class="subtitle has-text-centered">
+                    <span class="pal">ODEX</span> is an open-domain &#128214, multilingual &#127757, execution-based &#128736
+                    <br> natural language to code generation &#128187 data benchmark 
+                    <br> <br> <br>
+                </h2>
+                <h2 class="subtitle has-text-centered">
+                </h2>
                 <figure class="image is-20by20">
                     <img src="static/images/odex_overview.png" alt="">
                 </figure>
-                <h2 class="subtitle has-text-centered">
-                    <span class="pal">ODEX</span> is an &#127744 open-domain &#127757 multilingual &#128678 execution-based &#128187 natural language to code generation benchmark
-                </h2>
             </div>
         </div>
     </section>
@@ -160,16 +164,15 @@ function toggle_visibility(element_id) {
                     <div class="content has-text-justified is-size-5">
 
                         <p> To extend the scope of coding queries to more realistic settings, 
-                            we propose ODEX, the first <b>o</b>pen-<b>d</b>omain <b>ex</b>ecution-based natural language (NL) to code generation dataset.
+                            we propose <b>ODEX</b>, the first <b>O</b>pen-<b>D</b>omain <b>EX</b>ecution-based natural language (NL) to code generation dataset.
                             ODEX has 945 NL-Code pairs spanning <b>79 diverse libraries</b>, along with <b>1,707 human-written test cases</b> for execution. 
-                            Our NL-Code pairs are harvested from StackOverflow forums to encourage natural and practical coding queries, 
-                            which are then carefully rephrased to ensure intent clarity and prevent potential data memorization. 
+                            Our NL-Code pairs are harvested from StackOverflow forums to encourage natural and practical coding queries. 
                             Moreover, ODEX supports four natural languages as intents, in English, español (Spanish), 日本語 (Japanese), 
-                            and Pусский (Russian). 
+                            and Pусский (Russian). <br>
                             ODEX unveils intriguing behavioral differences between top-performing Code LMs: Codex performs better on open-domain queries, 
                             yet CodeGen captures a better balance between open- and closed-domain. 
                             ODEX corroborates the merits of execution-based evaluation over metrics without execution but also unveils their complementary effects. 
-                            Powerful models such as CodeGen-6B only achieve an 11.96 pass rate at top-1 prediction, suggesting plenty of headroom for improvement. 
+                            Powerful models such as CodeGen-6B only achieve an 11.96 top-1 pass rate, suggesting plenty of headroom for improvement. 
                         </p>
 
                     </div>
@@ -203,10 +206,9 @@ function toggle_visibility(element_id) {
                         <!--row1, colored objects-->
                         <hr>
                 </div>
-                <h2 class="subtitle has-text-centered"> ODEX (left) features a wide coverage of 79 open-domain libraries.
-                    On the other hand, existing benchmarks either focus on built-in grammars
-                    or are limited to a small set of libraries in the data science domain.</h2>
-
+                <h2 class="subtitle has-text-centered"> ODEX (left) features a wide coverage of 79 open-domain libraries. 
+                    Other existing benchmarks (right) either focus on built-in grammars or are limited to a small set of libraries in the data science domain.
+                </h2>
                 </div>
             </div>
             </div>
@@ -223,11 +225,41 @@ function toggle_visibility(element_id) {
                         <img
                             src="static/images/performance.png" alt="">
                     </figure>
-                        <h2 class="subtitle has-text-centered"> There is plenty of improvement headroom even with strong Codex model </h2>
+                        
                     <hr>
+                    <h2 class="subtitle has-text-centered"> Plenty of improvement headroom even with state-of-the-art Code LMs. </h2>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="section" id="open domain">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full">
+                <h2 class="title is-3">Open Domain vs. Closed Domain</h2>
+                <div class="columns is-mobile is-centered is-vcentered">
+                          <div class="column">
+                            <figure class="image is-16by16">
+                                <img src="static/images/codex-odcd-gap.png" alt="">
+                            </figure>
+                          </div>
+                          <div class="column">
+                            <figure class="image is-16by16">
+                                <img src="static/images/codegen-odcd-gap.png"  alt="">
+                            </figure>
+                          </div>
+                        <!--row1, colored objects-->
+                        <hr>
+                </div>
+                <h2 class="subtitle has-text-centered"> 
+                    Significant gaps of CodeX (left) and CodeGen (right) models 
+                    between open- and closed-domain.
+                </h2>
+
+                </div>
+            </div>
+            </div>
     </section>
 
     <section class="section" id="examples-gsm8k">
@@ -235,7 +267,7 @@ function toggle_visibility(element_id) {
           <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Examples</h2>
-                <span class="subtitle has-text-centered">Examples for all four languages of datasets are shown below.
+                <span class="subtitle has-text-centered">Examples in all four natural languages from the ODEX dataset are shown below.
                     ODEX is also available on <a href="">Huggingface &#129303 Dataset Hub</a></span> <br><br>
                 <div class="message is-multiline" id="en" style="background-color: white;margin-bottom: -60px; padding : 0;">
                     <div class="message-header" id="en_header">
@@ -359,7 +391,7 @@ assert s < set([i+1 for i in range(8)])
             <h2 class="title">BibTeX</h2>
             <pre><code>@article{wang2022odex
     url = {https://arxiv.org/abs/2212.10481},
-    author = {Wang, Zhiruo and Zhou, Shuyan and Fried, Daniel and Neubig, Graham},
+    author = {Zhiruo Wang, Shuyan Zhou, Daniel Fried, Graham Neubig},
     title = {Execution-Based Evaluation for Open-Domain Code Generation},
     publisher = {arXiv},
     year = {2022}
