@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Execution-Based Evaluation for Open-Domain Code Generation">
+    <meta name="keywords"
+        content="natural language to code generation, execution-basede evaluation, multilingual code generation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Execution-Based Evaluation for Open-Domain Code Generation</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="./static/css/prism.css">
+    <script src="./static/js/prism.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-coy.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <!-- <script src="./static/js/results.js"></script> -->
+
+    <!--solution from https://stackoverflow.com/questions/23018619/make-text-in-select-element-wrap-when-too-long-->
+<style>
+.long_opt {
+    max-width: 100%;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+</style>
+<script>
+    // toggle the visibility of the element with id "element_id"
+function toggle_visibility(element_id) {
+    var e = document.getElementById(element_id);
+    if(e.style.display == 'block')
+       e.style.display = 'none';
+    else
+       e.style.display = 'block';
+}
+
+</script>
+<!-- <script>
+        $(function () {
+            $("#outputs").load("./static/outputs.html");
+        });
+    </script> -->
+
+    <!--font awesome-->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Execution-Based Evaluation for Open-Domain Code Generation</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://zorazrw.github.io/">Zhiruo Wang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://shuyanzhou.github.io/">Shuyan Zhou</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://dpfried.github.io">Daniel Fried</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="http://www.phontron.com/">Graham Neubig</a><sup>1,2</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Language Technologies Institute,
+                                Carnegie Mellon University</span>
+                            <br />
+                            <span class="author-block"><sup>2</sup>Inspired Cognition
+
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/2212.10481.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/zorazrw/odex"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code&Data</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <figure class="image is-20by20">
+                    <img src="static/images/odex_overview.pdf">
+                </figure>
+                <h2 class="subtitle has-text-centered">
+                    <span class="pal">ODEX</span> is an &#127744 open-domain &#127757 multilingual &#128678 execution-based &#128187 natural language to code generation benchmark
+                </h2>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified is-size-5">
+
+                        <p> To extend the scope of coding queries to more realistic settings, 
+                            we propose ODEX, the first <b>o</b>pen-<b>d</b>omain <b>ex</b>ecution-based natural language (NL) to code generation dataset.
+                            ODEX has 945 NL-Code pairs spanning <b>79 diverse libraries</b>, along with <b>1,707 human-written test cases</b> for execution. 
+                            Our NL-Code pairs are harvested from StackOverflow forums to encourage natural and practical coding queries, 
+                            which are then carefully rephrased to ensure intent clarity and prevent potential data memorization. 
+                            Moreover, ODEX supports four natural languages as intents, in English, español (Spanish), 日本語 (Japanese), 
+                            and Pусский (Russian). 
+                            ODEX unveils intriguing behavioral differences between top-performing Code LMs: Codex performs better on open-domain queries, 
+                            yet CodeGen captures a better balance between open- and closed-domain. 
+                            ODEX corroborates the merits of execution-based evaluation over metrics without execution but also unveils their complementary effects. 
+                            Powerful models such as CodeGen-6B only achieve an 11.96 pass rate at top-1 prediction, suggesting plenty of headroom for improvement. 
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+        </div>
+    </section>
+
+    <section class="section" id="open domain">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full">
+                <h2 class="title is-3">Coverage of Open-domain Libraries</h2>
+                <div class="columns is-mobile is-centered is-vcentered">
+                          <div class="column">
+                            <figure class="image is-16by16">
+                                <img src="static/images/lib_distribution_odex.pdf" alt="">
+                            </figure>
+                          </div>
+                          <div class="column">
+                            <figure class="image is-16by16">
+                                <img src="static/images/lib_distribution_1.pdf"  alt="">
+                            </figure>
+                          </div>
+                          <div class="column">
+                            <figure class="image is-16by16">
+                                <img src="static/images/lib_distribution_2.pdf" alt="">
+                            </figure>
+                          </div>
+                        <!--row1, colored objects-->
+                        <hr>
+                </div>
+                <h2 class="subtitle has-text-centered"> ODEX (left) features a wide coverage of 79 open-domain libraries.
+                    On the other hand, existing benchmarks either focus on built-in grammars
+                    or are limited to a small set of libraries in the data science domain.</h2>
+
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                <h2 class="title is-3">Results Summary</h2>
+
+                    <!--row1, colored objects-->
+                    <figure class="image is-64by64">
+                        <img
+                            src="static/images/performance.pdf">
+                    </figure>
+                        <h2 class="subtitle has-text-centered"> There is plenty of improvement headroom even with strong Codex model </h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="examples-gsm8k">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Examples</h2>
+                <span class="subtitle has-text-centered">Examples for all four languages of datasets are shown below.
+                    ODEX is also available on <a href="">Huggingface &#129303 Dataset Hub</a></span> <br><br>
+                <div class="message is-multiline" id="en" style="background-color: white;margin-bottom: -60px; padding : 0;">
+                    <div class="message-header" id="en_header">
+                        <p>English</p>
+                        <!--add a button on the right for toggle-->
+                        <button class="button is-small is-light" id="en_button"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="content" id="en_1">
+                        <blockquote class="has-text-left">Replace all occurrences of a string `\n` by string `<br>` in a pandas data frame `df`</blockquote>
+                    </div>
+                    <div class="block">
+                        <pre><code class="language-python"># Library import
+import pandas as pd
+​
+# Function-wrapped code solution
+def function(df):
+	return df.replace({'\n': '<br>'}, regex=True)
+​
+# Test case
+df = pd.DataFrame(['klm\\npqr', 'wxy\\njkl'], columns = ['val'])
+expected = pd.DataFrame(['klm<br>pqr', 'wxy<br>jkl'], columns = ['val'])
+assert pd.DataFrame.equals(candidate(df), expected)
+​
+</code></pre>
+                        <br><br><br><br><br>
+                    </div>
+              </div>
+
+                <div class="message is-multiline" id="ja" style="background-color: white;margin-bottom: -60px; padding : 0;">
+                    <div class="message-header" id="english_header">
+                        <p>日本語 (Japanese)</p>
+                        <!--add a button on the right for toggle-->
+                        <button class="button is-small is-light" id="ja_button"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="content" id="ja_1">
+                        <blockquote class="has-text-left">ブラウザオブジェクト`br`からsubmitした際の返り値を読みこむ <br>(Read the return value when submitting from the browser object `br`)</blockquote>
+                    </div>
+                    <div class="block">
+                        <pre><code class="language-python"># Library import
+import mechanize
+import urllib.request
+from unittest.mock import Mock
+​
+# Function-wrapped code solution
+def function(br):
+	return br.submit().read()
+​
+# Test case
+br = mechanize.Browser()
+x = urllib.request.urlopen('https://www.wikipedia.org')
+br.submit = Mock(return_value = x)
+assert b'Wikipedia' in function(br)
+</code></pre>
+                    </div>
+              </div>
+                        <br><br><br><br><br>
+
+
+                <div class="message is-multiline" id="ru" style="background-color: white;margin-bottom: -60px; padding : 0;">
+                    <div class="message-header" id="ru_header">
+                        <p>Pусский (Russian)</p>
+                        <!--add a button on the right for toggle-->
+                        <button class="button is-small is-light" id="ru_button"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="content" id="ru_1">
+                        <blockquote class="has-text-left">Проверить есть ли числа в строке `s`
+(Check if there are numbers in string `s`)</blockquote>
+                    </div>
+                    <div class="block">
+                        <pre><code class="language-python"># Library import
+​
+# Function-wrapped code solution
+def function(s):
+	return any(map(str.isdigit, s))
+​
+# Test case
+assert function('124dhe5') == True
+assert function('absbf') == False
+</code></pre>
+                        <br><br><br><br><br>
+                    </div>
+              </div>
+
+
+                <div class="message is-multiline" id="es" style="background-color: white;margin-bottom: -60px; padding : 0;">
+                    <div class="message-header" id="es_header">
+                        <p>español (Spanish)</p>
+                        <!--add a button on the right for toggle-->
+                        <button class="button is-small is-light" id="es_button"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="content" id="es_1">
+                        <blockquote class="has-text-left">¿Cómo escoger cuatro valores aleatorios `L1`, `L2`, `L3`, `L4` de una cadena `S` sin repetir?
+(How to pick four random values `L1`, `L2`, `L3`, `L4` from a string `S` without repeating?)</blockquote>
+                    </div>
+                    <div class="block">
+                        <pre><code class="language-python"># Library import
+import random
+​
+# Function-wrapped code solution
+def function(S):
+	L1, L2, L3, L4 = random.sample(S, 4)
+	return L1, L2, L3, L4
+​
+# Test case
+L1, L2, L3, L4 = function([1,2,3,4,5,6,7,8])
+s = set([L1,L2,L3,L4])
+assert len(s) == 4
+assert s < set([i+1 for i in range(8)])
+</code></pre>
+                    </div>
+              </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+<hr>
+    
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{wang2022odex
+    url = {https://arxiv.org/abs/2212.10481},
+    author = {Wang, Zhiruo and Zhou, Shuyan and Fried, Daniel and Neubig, Graham},
+    title = {Execution-Based Evaluation for Open-Domain Code Generation},
+    publisher = {arXiv},
+    year = {2022}
+}
+                  
+</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="https://arxiv.org/pdf/2212.10481.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/zorazrw/odex" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            Template adapted from <a href="http://nerfies.github.io/">Nerfies</a> by Keunhong Park et
+                            al.
+                            and uses <a href="https://bulma.io/">Bulma</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
