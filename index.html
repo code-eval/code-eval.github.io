@@ -294,7 +294,36 @@ assert pd.DataFrame.equals(candidate(df), expected)
 </code></pre>
                         <br><br><br><br><br>
                     </div>
-              </div>
+                </div>
+                
+                <div class="message is-multiline" id="es" style="background-color: white;margin-bottom: -60px; padding : 0;">
+                    <div class="message-header" id="es_header">
+                        <p>español (Spanish)</p>
+                        <!--add a button on the right for toggle-->
+                        <button class="button is-small is-light" id="es_button"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="content" id="es_1">
+                        <blockquote class="has-text-left">¿Cómo escoger cuatro valores aleatorios `L1`, `L2`, `L3`, `L4` de una cadena `S` sin repetir?
+(How to pick four random values `L1`, `L2`, `L3`, `L4` from a string `S` without repeating?)</blockquote>
+                    </div>
+                    <div class="block">
+                        <pre><code class="language-python"># Library import
+import random
+​
+# Function-wrapped code solution
+def function(S):
+	L1, L2, L3, L4 = random.sample(S, 4)
+	return L1, L2, L3, L4
+​
+# Test case
+L1, L2, L3, L4 = function([1,2,3,4,5,6,7,8])
+s = set([L1,L2,L3,L4])
+assert len(s) == 4
+assert s < set([i+1 for i in range(8)])
+
+</code></pre>
+                    </div>
+                </div> <br><br><br><br><br>
 
                 <div class="message is-multiline" id="ja" style="background-color: white;margin-bottom: -60px; padding : 0;">
                     <div class="message-header" id="english_header">
@@ -320,6 +349,7 @@ br = mechanize.Browser()
 x = urllib.request.urlopen('https://www.wikipedia.org')
 br.submit = Mock(return_value = x)
 assert b'Wikipedia' in function(br)
+
 </code></pre>
                     </div>
               </div>
@@ -346,39 +376,12 @@ def function(s):
 # Test case
 assert function('124dhe5') == True
 assert function('absbf') == False
+
 </code></pre>
-                        <br><br><br><br><br>
+                        
                     </div>
               </div>
 
-
-                <div class="message is-multiline" id="es" style="background-color: white;margin-bottom: -60px; padding : 0;">
-                    <div class="message-header" id="es_header">
-                        <p>español (Spanish)</p>
-                        <!--add a button on the right for toggle-->
-                        <button class="button is-small is-light" id="es_button"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
-                    </div>
-                    <div class="content" id="es_1">
-                        <blockquote class="has-text-left">¿Cómo escoger cuatro valores aleatorios `L1`, `L2`, `L3`, `L4` de una cadena `S` sin repetir?
-(How to pick four random values `L1`, `L2`, `L3`, `L4` from a string `S` without repeating?)</blockquote>
-                    </div>
-                    <div class="block">
-                        <pre><code class="language-python"># Library import
-import random
-​
-# Function-wrapped code solution
-def function(S):
-	L1, L2, L3, L4 = random.sample(S, 4)
-	return L1, L2, L3, L4
-​
-# Test case
-L1, L2, L3, L4 = function([1,2,3,4,5,6,7,8])
-s = set([L1,L2,L3,L4])
-assert len(s) == 4
-assert s < set([i+1 for i in range(8)])
-</code></pre>
-                    </div>
-              </div>
             </div>
         </div>
         </div>
