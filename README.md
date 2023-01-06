@@ -1,10 +1,10 @@
 # Execution-Based Evaluation for Open-Domain Code Generation
 
 ```
-@article{gao2022pal,
-  author = {Gao, Luyu and Madaan, Aman and Zhou, Shuyan and Alon, Uri and Liu, Pengfei and Yang, Yiming and Callan, Jamie and Neubig, Graham},
-  title = {PAL: Program-aided Language Models},
-  publisher = {arXiv},
-  year = {2022},
+@article{wang2022execution,
+  title={Execution-Based Evaluation for Open-Domain Code Generation},
+  author={Zhiruo Wang, Shuyan Zhou, Daniel Fried, Graham Neubig},
+  journal={arXiv preprint arXiv:2212.10481},
+  year={2022}
 }
 ```
